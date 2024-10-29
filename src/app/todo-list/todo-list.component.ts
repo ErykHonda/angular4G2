@@ -19,4 +19,5 @@ export class TodoListComponent {
     console.log("Aktualna Lista: ", this.todo);
   }
 
+
 }
