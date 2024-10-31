@@ -1,6 +1,11 @@
 <p class="mt-4">Dodaj Zadanie</p>
-<input type="text" name="todo" class="form-control" #todo>
+<input type="text" name="todo" class="form-control" #todo (keydown.enter)="addToDo(todo.value)">
 <button class="btn btn-primary mt-2" (click)="addToDo(todo.value)">Dodaj</button>
+
+<div class="alert alert-warning alert-dismissible fade show mt-2" role="alert" *ngIf="ErrorMessage">
+  {{ ErrorMessage}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="clearErrorMesage()"></button>
+</div>
 
 <div class="mt-4">
   <h4>Lista Zadań</h4>
