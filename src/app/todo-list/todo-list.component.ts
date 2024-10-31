@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgForOf, NgIf, NgStyle} from '@angular/common';
 import {Todo} from '../shared/interfaces/todo.interface';
 
 @Component({
@@ -7,7 +7,8 @@ import {Todo} from '../shared/interfaces/todo.interface';
   standalone: true,
   imports: [
     NgForOf,
-    NgIf
+    NgIf,
+    NgStyle
   ],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css'

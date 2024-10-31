@@ -9,7 +9,9 @@
       <input type="checkbox" class="form-check-input"
              [checked]="todo.isCompleted"
              (change)="changeToDoStatus(todo)"/>
-      <span class="todo-item">{{i+1}}. {{todo.name}}</span>
+      <span class="todo-item"
+            [ngStyle]="{'text-decoration': todo.isCompleted ? 'line-through' : 'none'}"
+      >{{i+1}}. {{todo.name}}</span>
     </li>
   </ul>
   <ng-template #noTask>
