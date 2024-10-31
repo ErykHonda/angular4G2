@@ -2,3 +2,17 @@
 <input type="text" name="todo" class="form-control" #todo>
 <button class="btn btn-primary mt-2" (click)="addToDo(todo.value)">Dodaj</button>
 
+<div class="mt-4">
+  <h4>Lista Zadań</h4>
+  <ul class="list-group todo-list" *ngIf="todos.length > 0 else noTask">
+    <li class="list-group-item" *ngFor="let todo of todos; index as i">
+      <input type="checkbox" class="form-check-input"
+             [checked]="todo.isCompleted"
+             (change)="changeToDoStatus(todo)"/>
+      <span class="todo-item">{{i+1}}. {{todo.name}}</span>
+    </li>
+  </ul>
+  <ng-template #noTask>
+    <h5>Brak Zadań Do Wykonania</h5>
+  </ng-template>
+</div>

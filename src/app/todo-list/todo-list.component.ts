@@ -1,23 +1,30 @@
 import { Component } from '@angular/core';
+import {NgForOf, NgIf} from '@angular/common';
+import {Todo} from '../shared/interfaces/todo.interface';
 
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [],
+  imports: [
+    NgForOf,
+    NgIf
+  ],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css'
 })
 export class TodoListComponent {
-  todo : string[] = [];
+  todos : Todo[] = [];
 
   addToDo(todo: string) : void {
     if(todo.length <= 3){
       alert("Za krótkie zadanie!");
       return;
     }
-    this.todo.push(todo);
-    console.log("Aktualna Lista: ", this.todo);
+    this.todos.push({name: todo, isCompleted: false });
+    console.log("Aktualna Lista: ", this.todos);
   }
 
-
+  changeToDoStatus(todo: Todo) {
+    todo.isCompleted = !todo.isCompleted;
+  }
 }
